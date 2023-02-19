@@ -79,7 +79,7 @@ const router = createBrowserRouter([
         element: <OTPVerify />,
         errorElement: <NotFound />,
     }
-]);
+],  { basename: "/" });
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
 
