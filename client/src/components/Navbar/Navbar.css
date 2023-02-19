@@ -1,0 +1,29 @@
+@font-face {
+    font-family: Roboto MonoI;
+    src: url('../../../public/Roboto_Mono/RobotoMono-Italic-VariableFont_wght.ttf');
+    font-family: Roboto MonoReg;
+    src: url('../../../public/Roboto_Mono/RobotoMono-VariableFont_wght.ttf');
+}
+
+* {
+    font-family: Roboto MonoReg;
+}
+
+.font_rbi {
+    font-family: Roboto MonoI;
+} 
+
+.gradient_nav {
+    background: rgb(128,199,255);
+    background: linear-gradient(180deg, rgba(128,199,255,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+.gradient_btn {
+    background: rgb(128,199,255);
+    background: linear-gradient(128deg, rgba(128,199,255,0.7) 0%, rgba(97,231,184,0.3) 100%);
+}
+
+.gradient_btn-leave {
+    background: rgb(209,128,255);
+    background: linear-gradient(128deg, rgba(209,128,255,1) 0%, rgba(231,97,97,1) 100%);
+}
