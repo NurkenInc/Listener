@@ -41,7 +41,7 @@ app.post('/resendOTPVerificationCode', resendOTPVerificationCode);
 app.use('/user', userRoutes);
 
 mongoose.connect(process.env.MONGO_URL!).then(() => {
-    console.log(`listening on port ${PORT}`)
+    console.log('mongo db connected');
     app.listen(PORT);
 });
 
