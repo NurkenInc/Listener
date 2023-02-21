@@ -35,7 +35,7 @@ export default function Navbar() {
     }, [])
 
     useEffect(() => {
-        if(location.pathname !== '/' && user && user.result.verified === true) {
+        if(location.pathname === '/home' && user && user.result.verified === true) {
             navigate('/listener');
         }
         else if(location.pathname !== '/verifyEmail' && user && user.result.verified === "false") {

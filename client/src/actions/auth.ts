@@ -1,5 +1,6 @@
 import { AUTH } from '../constants/actionTypes';
 import * as api from '../api/index.js';
+import { API_URL } from '../api/config';
 
 export const signin = (formData : any, navigate : any) => async (dispatch : any) => {
   try {1

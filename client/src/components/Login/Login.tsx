@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { json, Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
@@ -8,6 +8,7 @@ import Navbar from '../Navbar/Navbar';
 import { signin } from '../../actions/auth';
 import { AppDispatch } from '../../store/store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { API_URL } from '../../api/config';
 
 const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' }
 
@@ -28,7 +29,7 @@ export default function Login() {
     }
 
     const handleSubmit = () => {
-        dispatch(signin(formData, () => {navigate('/listener');})).then(result => setError(result));
+        dispatch(signin(formData, () => {navigate('/verifyEmail');})).then(result => setError(result));
     }
 
     const handleChange = (e : any) => {

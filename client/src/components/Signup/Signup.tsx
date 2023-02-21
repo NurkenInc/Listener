@@ -45,7 +45,7 @@ export default function Signup() {
     const handleSubmit = () => {
         validateFormData();
         if(formDataValid) {
-            dispatch(signup(formData, () => {navigate('/listener')})).then(result => setError(result));
+            dispatch(signup(formData, () => {navigate('/verifyEmail');})).then(result => setError(result));
         }
     }
 

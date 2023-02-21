@@ -161,14 +161,14 @@ export default function CustomSidebar(props:any) {
     async function handleDeleteDeck(deckId: string) {
         await deleteDeck(deckId);
         setDecks(decks.filter((deck) => deck._id !==deckId));
-        history('/');
+        history('/listener');
     }
 
     async function handleDeleteCard(deckId: string, index: number) {
         const newDeck = await deleteCard(deckId, index); 
         const deckIndex = decks.findIndex(x =>x._id === deckId);
         setDecks([...decks.splice(0, deckIndex), newDeck!, ...decks.splice(deckIndex + 1)]);
-        history('/'); 
+        history('/listener'); 
     } 
     
     useEffect(() => {
