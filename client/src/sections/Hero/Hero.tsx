@@ -8,7 +8,7 @@ export default function Hero() {
                 <p className='mx-[15px] lg:text-left text-center'>Listener is free platform, which you can use to take notes and add tasks! We want to improve ourselves and make our services better and you can show your impact by taking your first note!<br />Track your tasks,homeworks,targets and make just it!</p>
             </div>
             <div className="flex justify-center">
-                <img className="md:w-[35vw] md:h-[75vh] w-[55vw] h-[37vh] object-fit " src="../../../public/get-started.png" alt="note papers" />
+                <img className="md:w-[35vw] md:h-[75vh] w-[55vw] h-[37vh] object-fit " src="get-started.png" alt="note papers" />
             </div>
         </div>
     );

@@ -167,7 +167,7 @@ export default function GetStarted() {
                                         </LocalizationProvider>
                                     </div>
                                     <div className="flex justify-center items-center gap-4">
-                                        <img src="../../../public/shiba-sticker.gif" alt="shiba dog gif" className="w-[50px] h-[50px]" />
+                                        <img src="shiba-sticker.gif" alt="shiba dog gif" className="w-[50px] h-[50px]" />
                                         <button id="submitButton" className="md:mr-[70px] text-white bg-[#3982f7] hover:#2473f2 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Submit</button>
                                     </div>
                                 </form>

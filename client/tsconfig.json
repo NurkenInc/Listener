@@ -15,11 +15,11 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true
   },
   "include": ["src", "src/vite-env.d.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }]
-  
+  "references": [{ "path": "./tsconfig.node.json" }]  
 }

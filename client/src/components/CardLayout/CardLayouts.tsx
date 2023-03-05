@@ -1,9 +1,8 @@
 import { useLocation, useParams } from "react-router-dom";
-import { faCheck, faXmark, faClock, faNoteSticky, faCalendarDays, faInfo, faPencilSquare, faPencil, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faXmark, faClock, faNoteSticky, faCalendarDays, faInfo } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Typography } from "antd";
-import StatusDropdown from "../StatusDropdown/StatusDropdown";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { updateCard } from "../../api/updateCard";
 import { getDeck } from "../../api/getDeck";
 import { Card, getDecks } from "../../api/getDecks";
@@ -25,7 +24,7 @@ export default function CardLayout() {
 
     const {deckId, index} = useParams<string>();
 
-    async function fetchCard() {
+    const fetchCard = async () => {
         const deck = await getDeck(deckId!);
         setCard(deck!.cards[parseInt(index!)]); 
     }
@@ -43,19 +42,19 @@ export default function CardLayout() {
         fetchCard().then(() => setLoading(false));
     }, [deckId, index])
 
-    function handleSetStatus(statusValue : string) {
+    const handleSetStatus = (statusValue : string) => {
         setDropdownActive(false);
         setStatus(statusValue);
     }
 
-    async function handleSubmit() {
+    const handleSubmit = async () => {
         const card = {
             name: location.state.cardData.name,
             description: description,
             deadline: deadline || location.state.cardData.deadline,
             status: status,
             additionalInfo: addInfo,
-        }
+        };
         const decks = await getDecks();
         const deck = decks.find(x => x._id === deckId);
         deck!.cards[parseInt(index!)] = card;

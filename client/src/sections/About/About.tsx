@@ -3,7 +3,7 @@ export default function About() {
   return (
     <div className="flex items-center justify-center lg:gap-36">
             <div className="">
-                <img className="lg:h-[75vh] h-0" src="../../../public/getStartedNotes.png" alt="note papers" />
+                <img className="lg:h-[75vh] h-0" src="getStartedNotes.png" alt="note papers" />
             </div>
             <div className="flex-1 px-10 py-10 flex flex-col gap-8">
                 <h1 className="hero_title  lg:text-[144px] md:text-[100px] sm:text-[60px] text-[44px] lg:leading-[145.4px] md:leading-[114.4px] sm:leading-[74.4px] leading-[64.4px] uppercase text-black lg:text-left text-center">Who we are?</h1>

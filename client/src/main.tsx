@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import Deck from './components/Deck/Deck';
 import CustomSidebar from './components/Sidebar/CustomSidebar';
 import './index.css';
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';

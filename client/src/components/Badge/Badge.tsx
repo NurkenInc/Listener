@@ -1,67 +1,67 @@
-import styled from '@emotion/styled';
-import React from 'react';
+import React from "react";
+import styled from "@emotion/styled";
 
 interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
-  children?: React.ReactNode;
-  variant?: 'info' | 'success' | 'warning' | 'danger' | 'theme';
-  shape?: 'circle' | 'rounded';
+    children?: React.ReactNode;
+    variant?: "info" | "success" | "warning" | "danger" | "theme";
+    shape?: "circle" | "rounded";
 }
 
 const StyledBadge = styled.div<BadgeProps>`
-  min-width: 18px;
-  min-height: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: ${({ shape }) => (shape === 'circle' ? '50%' : '16px')};
-  padding: ${({ shape }) => (shape === 'circle' ? '0' : '0 6px')};
-  font-size: 11px;
-  font-weight: 600;
+    min-width: 18px;
+    min-height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: ${({ shape }) => (shape === "circle" ? "50%" : "16px")};
+    padding: ${({ shape }) => (shape === "circle" ? "0" : "0 6px")};
+    font-size: 11px;
+    font-weight: 600;
 
-  ${({ variant }) => {
-    switch (variant) {
-      case 'info':
-        return `
+    ${({ variant }) => {
+        switch (variant) {
+            case "info":
+                return `
                 background-color: #048acd;
                 color: #fff;
                 `;
-      case 'success':
-        return `
+            case "success":
+                return `
                 background-color: #0cbb34;
                 color: #fff;
 
                 `;
-      case 'danger':
-        return `
+            case "danger":
+                return `
                 background-color: #fb3939;
                 color: #fff;
 
                 `;
-      case 'warning':
-        return `
+            case "warning":
+                return `
                 background-color: #e25807;
                 color: #fff;
 
                 `;
-        case 'theme':
-        return `
+            case "theme":
+                return `
                 background-color: #0d1b61;
                 color: #fff;
 
                 `;
-    }
-  }}
+        }
+    }}
 `;
 
 export const Badge: React.FC<BadgeProps> = ({
-  children,
-  variant = 'info',
-  shape = 'rounded',
-  ...rest
+    children,
+    variant = "info",
+    shape = "rounded",
+    ...rest
 }) => {
-  return (
-    <StyledBadge variant={variant} shape={shape} {...rest}>
-      {children}
-    </StyledBadge>
-  );
+    return (
+        <StyledBadge variant={variant} shape={shape} {...rest}>
+            {children}
+        </StyledBadge>
+    );
 };
