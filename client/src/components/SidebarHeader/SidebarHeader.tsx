@@ -36,7 +36,7 @@ const StyledLogo = styled.div`
     background: linear-gradient(45deg, rgb(21 87 205) 0%, rgb(90 225 255) 100%);
 `;
 
-export const SidebarHeader: React.FC<SidebarHeaderProps> = ({
+const SidebarHeader: React.FC<SidebarHeaderProps> = ({
     children,
     ...rest
 }) => {
@@ -57,3 +57,5 @@ export const SidebarHeader: React.FC<SidebarHeaderProps> = ({
         </StyledSidebarHeader>
     );
 };
+
+export default SidebarHeader
