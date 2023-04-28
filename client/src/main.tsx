@@ -83,10 +83,9 @@ const router = createBrowserRouter([
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-    <Provider store={store}>
-        <React.StrictMode>
-            <RouterProvider router={router} />
-        </React.StrictMode>
-    </Provider>
+  <Provider store={store}>
+      <React.StrictMode>
+          <RouterProvider router={router} />
+      </React.StrictMode>
+  </Provider>
 );
-
