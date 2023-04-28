@@ -40,7 +40,7 @@ const CheckBoxCircle = styled.div<{ checked?: boolean }>`
     ${({ checked }) => (checked ? `left: 15px;` : "")}
 `;
 
-export const Switch = ({ id, label, checked, ...rest }: SwitchProps) => {
+const Switch = ({ id, label, checked, ...rest }: SwitchProps) => {
     return (
         <CheckBoxWrapper>
             <CheckBox checked={checked}>
@@ -68,3 +68,5 @@ export const Switch = ({ id, label, checked, ...rest }: SwitchProps) => {
         </CheckBoxWrapper>
     );
 };
+
+export default Switch
