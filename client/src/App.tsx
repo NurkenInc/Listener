@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar/Navbar';
 
 function App() {
-
     return (
         <div>
             <div className='w-full z-30 fixed'>
