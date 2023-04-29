@@ -1,48 +1,48 @@
 import styled from "@emotion/styled";
 import React from "react";
-import { TypographyProReact } from "../Typography/Typography";
+import { Typography } from "../../components";
 
 interface SidebarFooterProps extends React.HTMLAttributes<HTMLDivElement> {
-    children?: React.ReactNode;
-    collapsed?: boolean;
+  children?: React.ReactNode;
+  collapsed?: boolean;
 }
 
 const StyledButton = styled.a`
-    padding: 5px 16px;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    display: inline-block;
-    background-color: #fff;
-    color: #484848;
-    text-decoration: none;
+  padding: 5px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  background-color: #fff;
+  color: #484848;
+  text-decoration: none;
 `;
 
 const StyledSidebarFooter = styled.div`
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border-radius: 8px;
-    color: white;
-    background: linear-gradient(45deg, rgb(21 87 205) 0%, rgb(90 225 255) 100%);
-    /* background: #0098e5; */
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+  background: linear-gradient(45deg, rgb(21 87 205) 0%, rgb(90 225 255) 100%);
+  /* background: #0098e5; */
 `;
 
 const StyledCollapsedSidebarFooter = styled.a`
-    width: 40px;
-    height: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border-radius: 50%;
-    color: white;
-    background: linear-gradient(45deg, rgb(21 87 205) 0%, rgb(90 225 255) 100%);
-    /* background: #0098e5; */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  color: white;
+  background: linear-gradient(45deg, rgb(21 87 205) 0%, rgb(90 225 255) 100%);
+  /* background: #0098e5; */
 `;
 
 const SidebarFooter: React.FC<SidebarFooterProps> = ({
@@ -67,18 +67,18 @@ const SidebarFooter: React.FC<SidebarFooterProps> = ({
                     <div style={{ marginBottom: "12px" }}>
                         <img src='icon.png' alt='logotype' />
                     </div>
-                    <TypographyProReact fontWeight={600}>
+                    <Typography fontWeight={600}>
                         Listener
-                    </TypographyProReact>
+                    </Typography>
                     <div style={{ marginTop: "16px" }}>
                         <StyledButton>
-                            <TypographyProReact
+                            <Typography
                                 variant='caption'
                                 color='#607489'
                                 fontWeight={600}
                             >
                                 Contact us
-                            </TypographyProReact>
+                            </Typography>
                         </StyledButton>
                     </div>
                 </StyledSidebarFooter>
