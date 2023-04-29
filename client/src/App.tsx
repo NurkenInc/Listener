@@ -8,6 +8,7 @@ import { Home, GetStarted } from './pages';
 import './App.css';
 
 
+
 const CustomSidebarWrapper = () => {
   return (
     <div className='flex' id="outer-container">

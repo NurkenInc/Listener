@@ -36,7 +36,7 @@ export const signin = async (req : any, res : any) => {
         const isPasswordCorrect = await bcrypt.compare(password, existingUser.password);
 
         if(!isPasswordCorrect) {
-            return res.status(400).json({ message: 'Invalid credentials.' });
+            return res.status(400).json({ message: 'Invalid password.' });
         }
 
         const secret = process.env.OAUTH_SECRET;

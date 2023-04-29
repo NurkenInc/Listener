@@ -4,20 +4,20 @@ config();
 import express, { Request, Response } from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import Deck from './src/models/Deck';
-import { getDecksController } from './src/controller/getDecksController';
-import { createDeckController } from './src/controller/createDeckController';
-import { deleteDeckController } from './src/controller/deleteDeckController';
-import { getDeckController } from './src/controller/getDeckController';
-import { createCardForDeckController } from './src/controller/createCardForDeckController';
-import { deleteCardOnDeckController } from './src/controller/deleteCardOnDeckController';
-import { updateDeckController } from './src/controller/updateDeckController';
-import { updateCardOnDeckController } from './src/controller/updateCardOnDeckController';
-import auth from './src/middleware/auth';
+import Deck from './models/Deck';
+import { getDecksController } from './controller/getDecksController';
+import { createDeckController } from './controller/createDeckController';
+import { deleteDeckController } from './controller/deleteDeckController';
+import { getDeckController } from './controller/getDeckController';
+import { createCardForDeckController } from './controller/createCardForDeckController';
+import { deleteCardOnDeckController } from './controller/deleteCardOnDeckController';
+import { updateDeckController } from './controller/updateDeckController';
+import { updateCardOnDeckController } from './controller/updateCardOnDeckController';
+import auth from './middleware/auth';
 
-import userRoutes from './src/routes/users';
-import { verifyOTPController } from './src/controller/verifyOTPController';
-import { resendOTPVerificationCode } from './src/controller/resendOTPVerificationCode';
+import userRoutes from './routes/users';
+import { verifyOTPController } from './controller/verifyOTPController';
+import { resendOTPVerificationCode } from './controller/resendOTPVerificationCode';
 
 const PORT = 5000;
 
