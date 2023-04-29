@@ -35,7 +35,7 @@ function App() {
             <Route path='/account/signup' element={<Signup />} errorElement={<NotFound />} />
             <Route path='/verifyEmail' element={<OTPVerify />} errorElement={<NotFound />} />
             <Route 
-              path='/listner' 
+              path='/listener' 
               element={<CustomSidebarWrapper />} 
               /*loader={getDecks} replace with useEffect?*/ 
               errorElement={<NotFound />} 
@@ -46,7 +46,7 @@ function App() {
                 element={<CreateCardModal />} // rewrite its bad prop lift and pass to only track state use redux
                 errorElement={<NotFound />}
               />
-              <Route 
+              <Route
                 path='/listener/decks/:deckId/cards/:index'
                 element={<CardLayout />}
                 errorElement={<NotFound />}
