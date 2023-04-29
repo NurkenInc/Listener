@@ -95,7 +95,7 @@ const StyledTypography = styled.p<TypographyProps>`
   ${({ fontSize }) => (fontSize ? `font-size: ${fontSize};` : "")}
 `;
 
-export const TypographyProReact: React.FC<TypographyProps> = ({
+const TypographyProReact: React.FC<TypographyProps> = ({
     variant = "body1",
     children,
     ...rest
@@ -106,3 +106,5 @@ export const TypographyProReact: React.FC<TypographyProps> = ({
         </StyledTypography>
     );
 };
+
+export default TypographyProReact

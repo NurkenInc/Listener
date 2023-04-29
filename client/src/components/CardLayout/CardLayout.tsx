@@ -11,7 +11,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { TextField } from "@mui/material";
 import LoaderSquare from "../Loaders/LoaderSquare";
 
-export default function CardLayout() {
+function CardLayout() {
     const location = useLocation();
     const [dropdownActive, setDropdownActive] = useState(false);
     const [status, setStatus] = useState<string>('');
@@ -153,3 +153,5 @@ export default function CardLayout() {
         </div>
     );
 }
+
+export default CardLayout

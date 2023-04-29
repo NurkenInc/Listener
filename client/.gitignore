@@ -25,3 +25,6 @@ dist-ssr
 
 .env
 vite-env.d.ts
+
+*.todo
+TODO.todo

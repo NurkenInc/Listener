@@ -29,31 +29,27 @@ const StyledBadge = styled.div<BadgeProps>`
                 return `
                 background-color: #0cbb34;
                 color: #fff;
-
                 `;
             case "danger":
                 return `
                 background-color: #fb3939;
                 color: #fff;
-
                 `;
             case "warning":
                 return `
                 background-color: #e25807;
                 color: #fff;
-
                 `;
             case "theme":
                 return `
                 background-color: #0d1b61;
                 color: #fff;
-
                 `;
         }
     }}
 `;
 
-export const Badge: React.FC<BadgeProps> = ({
+const Badge: React.FC<BadgeProps> = ({
     children,
     variant = "info",
     shape = "rounded",
@@ -65,3 +61,5 @@ export const Badge: React.FC<BadgeProps> = ({
         </StyledBadge>
     );
 };
+
+export default Badge

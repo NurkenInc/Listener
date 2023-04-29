@@ -6,7 +6,8 @@ import StatusDropdown from "../StatusDropdown/StatusDropdown";
 import TextField from '@mui/material/TextField';
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 
-export default function CreateCardModal(props : any) {
+// there was props
+export default function CreateCardModal() {
     const [cardName, setCardName] = useState('');    
     const [cardDescription, setCardDescription] = useState('');    
     const [cardAddInfo, setCardAddInfo] = useState('');    
