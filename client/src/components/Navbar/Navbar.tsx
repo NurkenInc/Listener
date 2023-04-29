@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import "./Navbar.css";
+import { useDispatch } from "react-redux";
 import decode from "jwt-decode";
 
-import { useDispatch } from "react-redux";
+import "./Navbar.css";
+
 
 export default function Navbar() {
     const [user, setUser] = useState(
