@@ -1,7 +1,7 @@
-import styled from "@emotion/styled";
 import React from "react";
-import { useProSidebar } from "react-pro-sidebar";
-import { TypographyProReact } from "../Typography/Typography";
+import styled from "@emotion/styled";
+
+import { Typography } from "../../components";
 
 interface SidebarHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
     children?: React.ReactNode;
@@ -40,19 +40,18 @@ const SidebarHeader: React.FC<SidebarHeaderProps> = ({
     children,
     ...rest
 }) => {
-    const { rtl } = useProSidebar();
     return (
         <StyledSidebarHeader {...rest}>
             <div className='flex items-center'>
                 <StyledLogo>L</StyledLogo>
-                <TypographyProReact
+                <Typography
                     variant='subtitle1'
                     fontWeight={700}
                     color='#0098e5'
                     className='pl-[15px]'
                 >
                     Listener
-                </TypographyProReact>
+                </Typography>
             </div>
         </StyledSidebarHeader>
     );

@@ -1,19 +1,16 @@
 import React, { useEffect, useState, } from "react";
-import { TDeck } from "../../api/getDecks";
-import { createDeck, createCard, deleteCard, deleteDeck, getDecks, } from "../../api/index";
 import { useNavigate, useParams } from "react-router-dom";
-import { faNoteSticky, faPlus, faTrash, faPenToSquare, faStar, faMoon, faSun, faFolder } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faNoteSticky, faPlus, faTrash, faPenToSquare, faStar, faMoon, faSun, faFolder } from "@fortawesome/free-solid-svg-icons";
+import { push as BurgerMenu } from "react-burger-menu";
 import { Sidebar, Menu, MenuItem, SubMenu, useProSidebar, menuClasses, MenuItemStyles, } from "react-pro-sidebar";
-import { Switch } from "../Switch/Switch";
-import { SidebarHeader } from "../SidebarHeader/SidebarHeader";
-import { SidebarFooter } from "../SidebarFooter/SidebarFooter";
-import { Badge } from "../Badge/Badge";
-import { TypographyProReact } from "../Typography/Typography";
+
+import { createDeck, createCard, deleteCard, deleteDeck, getDecks, } from "../../api/index";
+import { Switch, SidebarHeader, SidebarFooter, Badge, Typography, CreateAndEditModal } from "../../components";
 import { updateDeck } from "../../api/updateDeck";
 import { updateCard } from "../../api/updateCard";
-import CreateAndEditModal from "../CreateAndEditModal/CreateAndEditModal";
-import { push as BurgerMenu } from "react-burger-menu";
+import { TDeck } from "../../api/getDecks";
+
 import "../BurgerMenu/BurgerMenu.css";
 
 type Theme = "light" | "dark";
@@ -222,7 +219,7 @@ export default function CustomSidebar(props: any) {
                         <div className='flex-1 mb-[32px]'>
                             <div className='px-0 py-0'>
                                 <div className='px-[24px] py-0 mb-[8px] mt-[32px]'>
-                                    <TypographyProReact
+                                    <Typography
                                         variant='body2'
                                         fontWeight={600}
                                         style={{
@@ -232,7 +229,7 @@ export default function CustomSidebar(props: any) {
                                         className='text-center'
                                     >
                                         General
-                                    </TypographyProReact>
+                                    </Typography>
                                 </div>
                                 <Menu menuItemStyles={menuItemStyles}>
                                     <MenuItem
@@ -248,7 +245,7 @@ export default function CustomSidebar(props: any) {
                                         Get Started
                                     </MenuItem>
                                 </Menu>
-                                <TypographyProReact
+                                <Typography
                                     variant='body2'
                                     fontWeight={600}
                                     style={{
@@ -258,7 +255,7 @@ export default function CustomSidebar(props: any) {
                                     className='text-center'
                                 >
                                     Notes
-                                </TypographyProReact>
+                                </Typography>
                             </div>
                             <Menu menuItemStyles={menuItemStyles}>
                                 <MenuItem
@@ -548,7 +545,7 @@ export default function CustomSidebar(props: any) {
                                     </SubMenu>
                                 ))}
                             </Menu>
-                            <TypographyProReact
+                            <Typography
                                 variant='body2'
                                 fontWeight={600}
                                 style={{
@@ -558,7 +555,7 @@ export default function CustomSidebar(props: any) {
                                 className='text-center'
                             >
                                 Settings
-                            </TypographyProReact>
+                            </Typography>
                             <Menu menuItemStyles={menuItemStyles}>
                                 <MenuItem
                                     icon={
