@@ -1,10 +1,10 @@
 import React from 'react';
 import { 
-  Outlet, 
   BrowserRouter as Router, 
   Routes, 
   Route, 
-  Navigate, 
+  Navigate,
+  Outlet, 
   useNavigate
 } from 'react-router-dom';
 import { 
@@ -12,37 +12,29 @@ import {
   SignIn,
   SignUp,
 } from '@clerk/clerk-react'
-import { ProSidebarProvider } from 'react-pro-sidebar';
 
 import { 
-  CustomSidebar, 
-  Navbar, 
+  Sidebar, 
+  Navbar,
   CardLayout, 
   FolderLayout, 
-  NotFound, 
-  OTPVerify,
+  NotFound,
   CreateCardModal
 } from './components';
 import { Home, GetStarted, Auth } from './pages';
 
 import './App.css';
 
-const CustomSidebarWrapper = () => {
+const clerk_pub_key = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
+
+const SidebarWrapper = () => {
   return (
-    <div className='flex' id="outer-container">
-      <ProSidebarProvider>
-          <CustomSidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'}/>
-      </ProSidebarProvider>
-      <div id="detail" className=' mt-8 w-[100vw]'>
-          <div id='page-wrap' className=' mt-20 w-[100vw] items-center flex flex-col'>
-              <Outlet />
-          </div>
-      </div>
-    </div>
+    <>
+      <Sidebar />
+      <Outlet />
+    </>
   )
 }
-
-const clerk_pub_key = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
 const ClerkProviderWithRouter = () => {
   const navigate = useNavigate()
@@ -66,10 +58,9 @@ const ClerkProviderWithRouter = () => {
           element={<Auth><SignUp redirectUrl={'/listener'} signInUrl='/account/login' /></Auth>} 
           errorElement={<NotFound />} 
         />
-        <Route path='/verifyEmail' element={<OTPVerify />} errorElement={<NotFound />} />
         <Route 
           path='/listener' 
-          element={<CustomSidebarWrapper />} 
+          element={<SidebarWrapper />} 
           /*loader={getDecks} replace with useEffect?*/ 
           errorElement={<NotFound />} 
         >
@@ -84,7 +75,7 @@ const ClerkProviderWithRouter = () => {
             element={<CardLayout />}
             errorElement={<NotFound />}
           />
-          <Route 
+          <Route
             path='/listener/decks/:deckId'
             element={<FolderLayout />}
             errorElement={<NotFound />}
