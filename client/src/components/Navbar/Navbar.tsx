@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useUser, UserButton } from '@clerk/clerk-react'
-import decode from "jwt-decode";
 
 import "./Navbar.css";
 
