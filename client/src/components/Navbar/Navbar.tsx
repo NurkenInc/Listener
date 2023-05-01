@@ -44,11 +44,13 @@ export default function Navbar() {
         isSignedIn
       ) {
           navigate("/listener");
+          return;
       }
-  }, [pathname]);
+      navigate('/home')
+  }, [isSignedIn]);
 
   return (
-      <div className='flex justify-between h-[10vh] gradient_btn'>
+      <div className='flex justify-between items-center h-[10vh] gradient_btn'>
           <div 
             className='flex items-center justify-center flex-[0.25] md:ml-0 ml-[20px] cursor-pointer'
             onClick={() => navigate('/home')}
@@ -62,7 +64,9 @@ export default function Navbar() {
           </div>
           {
             user ?
-            <UserButton />
+            <div className='px-4'>
+              <UserButton />
+            </div>
             : (
                 <div className='flex items-center justify-center flex-[0.45] gap-8'>
                     <p className='cursor-pointer whitespace-nowrap'>
