@@ -17,7 +17,7 @@ const Sidebar = () => {
 
   return (
     <aside>
-      <Button ref={openBtnRef}>BurgerMenu icon</Button>
+      <Button onClick={onOpen} ref={openBtnRef}>BurgerMenu icon</Button>
       <Drawer
         isOpen={isOpen}
         placement='right'
@@ -29,7 +29,7 @@ const Sidebar = () => {
             <DrawerCloseButton />
             <DrawerHeader>Listener</DrawerHeader>
             <DrawerBody>
-              
+
             </DrawerBody>
           </DrawerContent>
       </Drawer> 
