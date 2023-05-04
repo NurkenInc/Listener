@@ -2,16 +2,12 @@ import React, { useRef } from 'react'
 import {
   Drawer,
   DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
   DrawerOverlay,
   DrawerContent,
-  DrawerCloseButton,
   Button,
-  Input,
   useDisclosure
 } from '@chakra-ui/react'
-import { AiOutlineMenu } from 'react-icons/ai'
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 
 const Sidebar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -20,29 +16,37 @@ const Sidebar = () => {
   return (
     <>
       <Button ref={openBtnRef} colorScheme='teal' onClick={onOpen}>
-        Open
+        <AiOutlineMenu />
       </Button>
         <Drawer
           isOpen={isOpen}
-          placement='right'
+          placement='left'
           onClose={onClose}
           finalFocusRef={openBtnRef}
         >
           <DrawerOverlay />
           <DrawerContent>
-            <DrawerCloseButton />
-            <DrawerHeader>Create your account</DrawerHeader>
-
+            
             <DrawerBody>
-              <Input placeholder='Type here...' />
+              <div className='bg-black w-[30%] h-[100vh]'>
+                <div className='flex justify-between items-center'>
+                  <div className='px-8 font-bold text-white text-[20px]'>
+                    <h3>Listener</h3>
+                  </div>
+                  <div className='text-right p-4'>
+                    <button className='bg-transparent text-white px-2 py-2' onClick={onClose}>
+                      <AiOutlineClose />
+                    </button>
+                  </div>
+                </div>
+                <div className='hover:bg-white py-3 text-white'>General</div>
+                {/* link to general page  */}
+                <div className='hover:bg-white py-3 text-white'>Notes</div>
+                {/* // notes list */}
+                <div className='hover:bg-white py-3 text-white'>Contact us</div>
+              </div>
             </DrawerBody>
-
-            <DrawerFooter>
-              <Button variant='outline' mr={3} onClick={onClose}>
-                Cancel
-              </Button>
-              <Button colorScheme='blue'>Save</Button>
-            </DrawerFooter>
+           
           </DrawerContent>
         </Drawer>
     </>
