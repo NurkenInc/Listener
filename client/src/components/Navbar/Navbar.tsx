@@ -46,7 +46,7 @@ export default function Navbar() {
           return;
       }
       navigate('/home')
-  }, [isSignedIn]);
+  }, [isSignedIn, user]);
 
   return (
       <div className='flex justify-between items-center h-[10vh] gradient_btn'>
