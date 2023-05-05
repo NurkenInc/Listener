@@ -46,7 +46,7 @@ export default function GetStarted() {
                             <h2 className="text-left ml-5 md:ml-20 font-bold text-black italic mt-[-35px] md:mt-0 text-[50px]">Project</h2>
                             <p className="text-left ml-5 md:ml-20 italic text-gray-600 text-[17px] mt-[25px]">Hi it's example folder named Project<br />If you want to add new note you can use sidebar</p>
                         </div>
-                            <div className="w-[95vw] mt-[25px] md:mt-[50px] relative overflow-x-auto shadow-md sm:rounded-lg">
+                            <div className="w-[95vw] mt-[25px] md:mt-[50px] relative overflow-x-auto shadow-md sm:rounded-lg z-[-25]">
                                     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                         <tr className="text-center">
