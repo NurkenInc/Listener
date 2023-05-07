@@ -26,25 +26,25 @@ const Sidebar = () => {
       >
         <AiOutlineMenu size={30} />
       </Button>
-        <Drawer
-          isOpen={isOpen}
-          placement='left'
-          onClose={onClose}
-          finalFocusRef={openBtnRef}
-        >
-          <DrawerOverlay />
-          <DrawerContent>
-            
-            <DrawerBody>
-              <div className='bg-black w-[200px] h-[100vh]'>
-                <SidebarHeader onClose={onClose} />
-                <SidebarItems />
-                <SidebarFooter />
-              </div>
-            </DrawerBody>
-           
-          </DrawerContent>
-        </Drawer>
+      <Drawer
+        isOpen={isOpen}
+        placement='left'
+        onClose={onClose}
+        finalFocusRef={openBtnRef}
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          
+          <DrawerBody>
+            <div className='bg-[#fafafa] w-[200px] h-[100vh]'>
+              <SidebarHeader onClose={onClose} />
+              <SidebarItems />
+              <SidebarFooter />
+            </div>
+          </DrawerBody>
+          
+        </DrawerContent>
+      </Drawer>
     </>
   )
 }
