@@ -1,4 +1,9 @@
 import React from 'react'
+import {
+  Editable,
+  EditableInput,
+  EditablePreview
+} from '@chakra-ui/react'
 
 const testNotes = [
   {
@@ -27,16 +32,17 @@ const testNotes = [
 ]
 
 const SidebarItems = () => {
+  
   return (
     <div>
-      <div className='hover:bg-white py-3 px-1 text-white'>
+      <div className='hover:bg-white py-3 px-1 text-black'>
         General
       </div>
       {/* link to general page  */}
-      <div className='hover:bg-white py-3 px-1 text-white'>
+      <div className='hover:bg-white py-3 px-1 text-black'>
         Notes
       </div>
-      <div className='text-white'>
+      <div className='text-black'>
         {
           testNotes.map((item) => (
             <div>
