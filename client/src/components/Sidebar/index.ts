@@ -1,6 +1,6 @@
 import SidebarFooter from './SidebarFooter';
 import SidebarHeader from './SidebarHeader';
-import SidebarItems from './SidebarItems';
+import SidebarItems from './SidebarContent';
 
 export {
   SidebarHeader,
