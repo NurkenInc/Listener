@@ -40,7 +40,7 @@ export default function Navbar() {
   useEffect(() => {
       if (
         pathname === "/home" &&
-        isSignedIn
+        user
       ) {
           navigate("/listener");
           return;
