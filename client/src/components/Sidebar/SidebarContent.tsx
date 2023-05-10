@@ -32,11 +32,11 @@ const SidebarContent = () => {
   
   return (
     <div>
-      <div className='hover:bg-white py-3 px-1 text-black'>
+      <div className='hover:bg-white py-3 px-1 text-gray-500'>
         General
       </div>
       {/* link to general page  */}
-      <div className='hover:bg-white py-3 px-1 text-black'>
+      <div className='hover:bg-white py-3 px-1 text-gray-500'>
         Notes
       </div>
       <div className='text-black'>
