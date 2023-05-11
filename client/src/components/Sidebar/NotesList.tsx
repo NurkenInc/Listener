@@ -3,12 +3,12 @@ import { Collapse, useDisclosure } from '@chakra-ui/react'
 
 import { FiEdit } from 'react-icons/fi'
 import { BsCheck2Square } from 'react-icons/bs'
-import { AiOutlineCloseSquare, AiOutlineArrowRight } from 'react-icons/ai'
+import { AiOutlineCloseSquare, AiOutlineArrowRight, AiOutlineFolderAdd, AiFillDelete, AiOutlineFileAdd  } from 'react-icons/ai'
 
 interface NoteItemProps {
   text: string,
   handleToggleSubnotes?: any,
-  isSubnotesOpen: boolean
+  isSubnotesOpen?: boolean
 }
 
 const NotesItem = ({ text, isSubnotesOpen, handleToggleSubnotes } : NoteItemProps) => {
@@ -47,28 +47,40 @@ const NotesItem = ({ text, isSubnotesOpen, handleToggleSubnotes } : NoteItemProp
             />
           {
             handleToggleSubnotes ? (
-              <div className={`hover:bg-slate-200 p-1 rounded-md ${isSubnotesOpen ? 'rotate-90' : 'rotate-0'} transition-all duration-200`}>
+              <div className={`hover:bg-slate-200 p-1 rounded-md ${isSubnotesOpen ? 'rotate-90' : 'rotate-0'} transition-all duration-200 bg-slate-200`}>
                 <AiOutlineArrowRight size='1rem' />
               </div>
             ) : null
           }
         </div>
-        {
-          isEditing ? (
-            <div className='flex'>
-              <div onClick={handleSaveChanges} className='bg-slate-300 mr-2 rounded-md px-1 py-1 hover:bg-slate-400'>
-                <BsCheck2Square size='1rem' />
+        <div className='flex'>
+          {
+            handleToggleSubnotes ? (
+              <div className='bg-slate-300 mr-2 rounded-md px-1 py-1 hover:bg-slate-400'>
+                <AiOutlineFileAdd size='1rem' />
               </div>
-              <div onClick={handleCancelChanges} className='bg-slate-300 mr-2 rounded-md px-1 py-1 hover:bg-slate-400'>
-                <AiOutlineCloseSquare size='1rem' />
+            ) : null
+          }
+          {
+            isEditing ? (
+              <div className='flex'>
+                <div onClick={handleSaveChanges} className='bg-slate-300 mr-2 rounded-md px-1 py-1 hover:bg-slate-400'>
+                  <BsCheck2Square size='1rem' />
+                </div>
+                <div onClick={handleCancelChanges} className='bg-slate-300 mr-2 rounded-md px-1 py-1 hover:bg-slate-400'>
+                  <AiOutlineCloseSquare size='1rem' />
+                </div>
               </div>
-            </div>
-          ) : (
-            <div onClick={handleEditing} className='bg-slate-300 mr-2 rounded-md px-1 py-1 hover:bg-slate-400'>
-              <FiEdit size='1rem' />
-            </div>
-          )
-        }
+            ) : (
+              <div onClick={handleEditing} className='bg-slate-300 mr-2 rounded-md px-1 py-1 hover:bg-slate-400'>
+                <FiEdit size='1rem' />
+              </div>
+            )
+          }
+          <div className='bg-slate-300 mr-2 rounded-md px-1 py-1 hover:bg-slate-400'>
+            <AiFillDelete size='1rem' />
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -82,8 +94,11 @@ const NotesList = ({ notes } : { notes: Array<any> }) => {
       <>
         {
           note?.subnotes?.map((item : any) => (
-            <div key={item.name} className='pl-4 py-3 hover:bg-white'>
-              {item.name}
+            // <div key={item.name} className='pl-4 py-3 hover:bg-white'>
+            //   {item.name}
+            // </div>
+            <div>
+              <MemorizedNoteItem text={item.name} />
             </div>
           ))
         }
@@ -98,8 +113,6 @@ const NotesList = ({ notes } : { notes: Array<any> }) => {
       onToggle();
     }
 
-
-
     return (
       <div>
         <MemorizedNoteItem text={note.name} isSubnotesOpen={isOpen} handleToggleSubnotes={handleToggleSubnotes} />
@@ -112,6 +125,12 @@ const NotesList = ({ notes } : { notes: Array<any> }) => {
   
   return (
     <>
+      <div className='hover:bg-white py-3 px-1 text-gray-500 flex items-center justify-between'>
+        Notes
+        <div>
+          <AiOutlineFolderAdd className='text-black bg-slate-300 mr-2 rounded-md px-1 py-1 hover:bg-slate-400' size='1.5rem' />
+        </div>
+      </div>
       {
         notes.map((item) => (
           <Note note={item} key={item.name} />
