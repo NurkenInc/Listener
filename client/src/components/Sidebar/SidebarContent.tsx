@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import NotesList from './NotesList'
 
@@ -29,10 +30,15 @@ const testNotes = [
 ]
 
 const SidebarContent = () => {
-  
+  const navigate = useNavigate();
+
+  const handleGeneralOptionClick = () => {
+    navigate('/listener')
+  }
+
   return (
     <div>
-      <div className='hover:bg-white py-3 px-1 text-gray-500'>
+      <div onClick={handleGeneralOptionClick} className='hover:bg-white py-3 px-1 text-black cursor-pointer'>
         General
       </div>
       {/* link to general page  */}
