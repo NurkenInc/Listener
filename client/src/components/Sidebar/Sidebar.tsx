@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/react'
 import { AiOutlineMenu } from 'react-icons/ai'
 
-import { SidebarFooter, SidebarHeader, SidebarItems } from '../Sidebar'
+import { SidebarFooter, SidebarHeader, SidebarContent } from '../Sidebar'
 
 const Sidebar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -34,15 +34,11 @@ const Sidebar = () => {
       >
         <DrawerOverlay />
         <DrawerContent>
-          
-          <DrawerBody>
-            <div className='bg-[#fafafa] w-[200px] h-[100vh]'>
-              <SidebarHeader onClose={onClose} />
-              <SidebarItems />
-              <SidebarFooter />
-            </div>
+          <DrawerBody className='bg-[#fafafa] w-[200px] h-[100vh] relative'>
+            <SidebarHeader onClose={onClose} />
+            <SidebarContent />
+            <SidebarFooter />
           </DrawerBody>
-          
         </DrawerContent>
       </Drawer>
     </>
