@@ -5,15 +5,17 @@ import World from "../../sections/World/World";
 import GetStarted from "../../sections/GetStarted/GetStarted";
 import Footer from "../../sections/Footer/Footer";
 
-export default function Home() {
-    return (
-        <>
-          <Hero />
-          <Explore />
-          <About />
-          <World />
-          <GetStarted />
-          <Footer />
-        </>
-    )
+const Home = () => {
+  return (
+    <>
+      <Hero />
+      <Explore />
+      <About />
+      <World />
+      <GetStarted />
+      <Footer />
+    </>
+  )
 };
+
+export default Home;
