@@ -2,7 +2,9 @@ export const AUTH = 'AUTH';
 export const LOGOUT = 'LOGOUT';
 
 export const CARD_REQUEST = 'CARD_REQUEST'
+export const CARD_FAILURE = 'CARD_FAILURE'
 export const DECK_REQUEST = 'DECK_REQUEST'
+export const DECK_FAILURE = 'DECK_FAILURE'
 
 export const CREATE_CARD_SUCCESS = 'CREATE_CARD_SUCCESS'
 export const DELETE_CARD_SUCCESS = 'DELETE_CARD_SUCCESS'
