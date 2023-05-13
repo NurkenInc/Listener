@@ -4,12 +4,14 @@ import {
   UPDATE_DECK_SUCCESS,
   FETCH_DECKS_SUCCESS,
   FETCH_DECK_SUCCESS,
-  DECK_REQUEST
+  DECK_REQUEST,
+  DECK_FAILURE,
 } from '../constants/actionTypes';
 
 const initialState = {
   isLoading: false,
   data: [],
+  currentDeck: null,
   error: null
 }
 
@@ -40,13 +42,24 @@ const deckReducer = (state = initialState, action : any) => {
         data: state.data.filter((item : any) => 
         item.id !== action.payload.id)
       }
-    case FETCH_DECK_SUCCESS:
+    case FETCH_DECKS_SUCCESS:
       return {
         ...state,
         isLoading: false,
         data: action.payload
       }
-      // todo figure out FETCH_DECK_SUCCESS
+    case FETCH_DECK_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        currentDeck: action.payload
+      }
+    case DECK_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload
+      }
     default:
       return state
   }
