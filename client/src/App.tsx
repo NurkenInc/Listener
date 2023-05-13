@@ -20,8 +20,8 @@ import {
   FolderLayout, 
   NotFound,
   CreateCardModal
-} from './components';
-import { Home, GetStarted, Auth } from './pages';
+} from '@/components';
+import { Home, GetStarted, Auth } from '@/pages';
 
 import './App.css';
 
