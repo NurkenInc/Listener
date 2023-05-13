@@ -4,13 +4,15 @@ import {
   UPDATE_CARD_SUCCESS,
   FETCH_CARDS_SUCCESS,
   FETCH_CARD_SUCCESS,
-  CARD_REQUEST
+  CARD_REQUEST,
+  CARD_FAILURE,
 } from '../constants/actionTypes';
 
 const initialState = {
   isLoading: false,
   data: [],
-  error: null
+  currentCard: null,
+  error: null,
 }
 
 const cardReducer = (state = initialState, action : any) => {
@@ -46,7 +48,18 @@ const cardReducer = (state = initialState, action : any) => {
         isLoading: false,
         data: action.payload
       }
-      // todo figure out FETCH_CARD_SUCCESS
+    case FETCH_CARD_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        currentCard: action.payload
+      }
+    case CARD_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload
+      }
     default:
       return state
   }
