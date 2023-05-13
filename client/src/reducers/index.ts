@@ -1,5 +1,9 @@
 import { combineReducers } from 'redux';
 
-import auth from './auth';
+import authReducer from './auth';
+import deckReducer from './decks';
+import cardReducer from './cards';
 
-export const reducers = combineReducers({ auth })
+const reducers = combineReducers({ authReducer, deckReducer, cardReducer });
+
+export default reducers;
