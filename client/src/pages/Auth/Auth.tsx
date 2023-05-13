@@ -8,4 +8,4 @@ const Auth = ({ children } : any) => {
   )
 }
 
-export default Auth
+export default Auth;
