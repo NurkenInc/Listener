@@ -34,10 +34,12 @@ const Sidebar = () => {
       >
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerBody className='bg-[#fafafa] w-[200px] h-[100vh] relative'>
+          <DrawerBody className='bg-[#fafafa] w-[200px] h-[100vh]'>
             <SidebarHeader onClose={onClose} />
-            <SidebarContent />
-            <SidebarFooter />
+            <div className='flex-col space-y-40'>
+              <SidebarContent />
+              <SidebarFooter />
+            </div>
           </DrawerBody>
         </DrawerContent>
       </Drawer>
