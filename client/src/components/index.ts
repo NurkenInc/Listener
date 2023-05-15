@@ -8,6 +8,7 @@ import Navbar from './Navbar/Navbar';
 import NotFound from './NotFound/NotFound';
 import Sidebar from './Sidebar/Sidebar';
 import StatusDropdown from './StatusDropdown/StatusDropdown';
+import FolderModal from './Modals/FolderModal/FolderModal';
 import { TypingText, TitleText } from './CustomTexts/CustomTexts';
 
 export {
@@ -22,5 +23,6 @@ export {
   Sidebar,
   StatusDropdown,
   TypingText,
-  TitleText,  
+  TitleText,
+  FolderModal,
 };
