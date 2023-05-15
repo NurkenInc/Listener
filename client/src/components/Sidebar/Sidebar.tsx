@@ -34,7 +34,7 @@ const Sidebar = () => {
       >
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerBody className='bg-[#fafafa] w-[200px] h-[100vh]'>
+          <DrawerBody className='bg-[#fafafa] w-[250px] h-[100vh]'>
             <SidebarHeader onClose={onClose} />
             <div className='flex-col space-y-40'>
               <SidebarContent />
