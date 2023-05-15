@@ -1,6 +1,8 @@
 import React, { useState, useRef, useMemo, useCallback, useEffect } from 'react'
 import { Collapse, useDisclosure } from '@chakra-ui/react'
 
+import { FolderModal } from '@/components';
+
 import { FiEdit } from 'react-icons/fi'
 import { BsCheck2Square } from 'react-icons/bs'
 import { AiOutlineCloseSquare, AiOutlineArrowRight, AiOutlineFolderAdd, AiFillDelete, AiOutlineFileAdd  } from 'react-icons/ai'
@@ -42,7 +44,14 @@ const NotesItem = ({ text, isSubnotesOpen, handleToggleSubnotes, editMode } : No
   return (
     <div className='px-1 py-3 hover:bg-white'>
       <div className='flex gap-3 items-center justify-between'>
-        <div onClick={handleToggleSubnotes} className='flex'>
+        <div onClick={handleToggleSubnotes} className='flex items-center gap-1'>
+          {
+            handleToggleSubnotes && !isEditing && (
+              <div className={`${isSubnotesOpen ? 'rotate-90' : 'rotate-0'} transition-all duration-200`}>
+                <AiOutlineArrowRight size='1rem' />
+              </div>
+            )
+          }
           <input
             ref={noteInputRef}
             defaultValue={text}
@@ -50,13 +59,6 @@ const NotesItem = ({ text, isSubnotesOpen, handleToggleSubnotes, editMode } : No
             readOnly={!isEditing}
             disabled={true}
           />
-          {
-            handleToggleSubnotes && !isEditing && (
-              <div className={`hover:bg-slate-200 p-1 rounded-md ${isSubnotesOpen ? 'rotate-90' : 'rotate-0'} transition-all duration-200 bg-slate-200`}>
-                <AiOutlineArrowRight size='1rem' />
-              </div>
-            )
-          }
         </div>
         <div className='flex'>
           {
@@ -98,6 +100,7 @@ const NotesItem = ({ text, isSubnotesOpen, handleToggleSubnotes, editMode } : No
 const MemorizedNoteItem = React.memo(NotesItem);
 
 const NotesList = ({ notes } : { notes: Array<any> }) => {
+  const { isOpen, onToggle } = useDisclosure();
 
   const Subnotes = ({ note } : { note : any }) => {
     return (
@@ -114,29 +117,14 @@ const NotesList = ({ notes } : { notes: Array<any> }) => {
   }
 
   const Notes = ({ notes }: { notes: Array<any> }) => {
-    const [addNote, setAddNote] = useState<boolean>(false);
-    
     const { isOpen, onToggle } = useDisclosure();
-
+    
     const handleToggleSubnotes = () => {
       onToggle();
-    }
-
-    const handleAddNote = () => {
-      setAddNote((state) => !state);
     }
     
     return (
       <div>
-        <div className='hover:bg-white py-3 px-1 text-gray-500 flex items-center justify-between'>
-          Notes
-          <div onClick={handleAddNote}>
-            <AiOutlineFolderAdd className='text-black bg-slate-300 mr-2 rounded-md px-1 py-1 hover:bg-slate-400' size='1.5rem' />
-          </div>
-        </div>
-        <div className={`${addNote ? '' : 'hidden'}`}>
-          <MemorizedNoteItem text={''} editMode={addNote} key={addNote as any} />
-        </div>
         {
           notes.map((note : any) => (
             <div key={note.name}>
@@ -153,9 +141,17 @@ const NotesList = ({ notes } : { notes: Array<any> }) => {
   
   return (
     <>
+      <div className='hover:bg-white py-3 px-1 text-gray-500 flex items-center justify-between'>
+        Notes
+        <div onClick={onToggle}>
+          <AiOutlineFolderAdd className='text-black bg-slate-300 mr-2 rounded-md px-1 py-1 hover:bg-slate-400' size='1.5rem' />
+        </div>
+      </div>
       <Notes notes={notes} />
+      <FolderModal isOpen={isOpen} />
     </>
   )
+  
 }
 
 export default NotesList;
