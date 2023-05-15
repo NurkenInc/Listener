@@ -12,6 +12,7 @@ import {
   SignIn,
   SignUp,
 } from '@clerk/clerk-react'
+import { ChakraProvider } from '@chakra-ui/react';
 
 import { 
   Sidebar, 
@@ -19,7 +20,7 @@ import {
   CardLayout, 
   FolderLayout, 
   NotFound,
-  CreateCardModal
+  CreateCardModal,
 } from '@/components';
 import { Home, GetStarted, Auth } from '@/pages';
 
@@ -30,7 +31,9 @@ const clerk_pub_key = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 const SidebarWrapper = () => {
   return (
     <>
-      <Sidebar />
+      <ChakraProvider>
+        <Sidebar />
+      </ChakraProvider>
       <Outlet />
     </>
   )
@@ -43,7 +46,7 @@ const ClerkProviderWithRouter = () => {
     <ClerkProvider
       publishableKey={clerk_pub_key}
       navigate={(to) => navigate(to)}
-    >
+      >
       <Navbar />
       <Routes>
         <Route path='/' element={<Navigate to='/home' />} errorElement={<NotFound />} />
