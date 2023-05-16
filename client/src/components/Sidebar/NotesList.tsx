@@ -100,7 +100,7 @@ const NotesItem = ({ text, isSubnotesOpen, handleToggleSubnotes, editMode } : No
 const MemorizedNoteItem = React.memo(NotesItem);
 
 const NotesList = ({ notes } : { notes: Array<any> }) => {
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen, onToggle, onClose } = useDisclosure();
 
   const Subnotes = ({ note } : { note : any }) => {
     return (
@@ -148,7 +148,7 @@ const NotesList = ({ notes } : { notes: Array<any> }) => {
         </div>
       </div>
       <Notes notes={notes} />
-      <FolderModal isOpen={isOpen} />
+      <FolderModal isOpen={isOpen} onClose={onClose} />
     </>
   )
   
