@@ -19,8 +19,8 @@ const Sidebar = () => {
     <>
       <Button
         ref={openBtnRef}
-        colorScheme='teal'
         onClick={onOpen}
+        variant='ghost'
         position={'fixed'}
         top={11}
       >
@@ -31,10 +31,11 @@ const Sidebar = () => {
         placement='left'
         onClose={onClose}
         finalFocusRef={openBtnRef}
+        size='xs'
       >
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerBody className='bg-[#fafafa] w-[250px] h-[100vh]'>
+          <DrawerBody p={0} className='bg-[#fafafa]' >
             <SidebarHeader onClose={onClose} />
             <div className='flex-col space-y-40'>
               <SidebarContent />
