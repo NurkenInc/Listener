@@ -74,7 +74,7 @@ const ClerkProviderWithRouter = () => {
             errorElement={<NotFound />}
           />
           <Route
-            path='/listener/decks/:deckId/cards/:index'
+            path='/listener/decks/:deckId/cards/:id'
             element={<CardLayout />}
             errorElement={<NotFound />}
           />
