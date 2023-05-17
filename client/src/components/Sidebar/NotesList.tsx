@@ -6,6 +6,7 @@ import { FolderModal } from '@/components';
 import { FiEdit } from 'react-icons/fi'
 import { BsCheck2Square } from 'react-icons/bs'
 import { AiOutlineCloseSquare, AiOutlineArrowRight, AiOutlineFolderAdd, AiFillDelete, AiOutlineFileAdd  } from 'react-icons/ai'
+import { useNavigate } from 'react-router-dom';
 
 interface NoteItemProps {
   text: string,
@@ -17,6 +18,8 @@ interface NoteItemProps {
 const NotesItem = ({ text, isSubnotesOpen, handleToggleSubnotes, editMode } : NoteItemProps) => {
   const [isEditing, setIsEditing] = useState<boolean>(Boolean(editMode));
   const noteInputRef = useRef<any>(null);
+  
+  const navigate = useNavigate();
 
   const handleEditing = () => {
     setIsEditing(true);
@@ -35,11 +38,13 @@ const NotesItem = ({ text, isSubnotesOpen, handleToggleSubnotes, editMode } : No
     noteInputRef!.current!.disabled = true;
   }
 
+  const handleAddCard = (deckId : string, cardId : string) => {
+    navigate(`/listener/decks/${deckId}/cards/${cardId}`);
+  }
+
   useEffect(() => {
     if(isEditing) handleEditing();
   }, []);
-
-  // console.log('rerender')
 
   return (
     <div className='px-1 py-3 hover:bg-white'>
@@ -63,7 +68,7 @@ const NotesItem = ({ text, isSubnotesOpen, handleToggleSubnotes, editMode } : No
         <div className='flex'>
           {
             handleToggleSubnotes && !isEditing && (
-              <div className='bg-slate-300 mr-2 rounded-md px-1 py-1 hover:bg-slate-400'>
+              <div onClick={() => handleAddCard('test', 'rewrite')} className='bg-slate-300 mr-2 rounded-md px-1 py-1 hover:bg-slate-400'>
                 <AiOutlineFileAdd size='1rem' />
               </div>
             )
@@ -108,7 +113,7 @@ const NotesList = ({ notes } : { notes: Array<any> }) => {
         {
           note?.subnotes?.map((item: any) => (
             <div key={item.name}>
-              <MemorizedNoteItem text={item.name} />
+              <MemorizedNoteItem text={item} />
             </div>
           ))
         }
