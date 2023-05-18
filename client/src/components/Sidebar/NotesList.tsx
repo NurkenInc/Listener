@@ -113,7 +113,7 @@ const NotesList = ({ notes } : { notes: Array<any> }) => {
         {
           note?.subnotes?.map((item: any) => (
             <div key={item.name}>
-              <MemorizedNoteItem text={item} />
+              <MemorizedNoteItem text={item.name} />
             </div>
           ))
         }
