@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
+import { Input } from '@chakra-ui/react';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { useAuth } from '@clerk/clerk-react';
 // import { Typography } from "antd";
@@ -33,12 +34,12 @@ const CardLayout = () => {
   // const [loading, setLoading] = useState(false);
 
   // const { deckIsLoading, decksData, currentDeck, deckError }  = useAppSelector((state) => state.deck);
-  const { isLoading, data, currentCard, error } : { currentCard: any, error: any, data: any, isLoading: boolean } = useAppSelector((state) => state.card);
+  const { isLoading, data, currentCard, error } = useAppSelector((state) => state.card);
   // rewrite
   const { deckId, cardId } = useParams<string>();
   const { getToken } = useAuth();
 
-  const location = useLocation();
+  // const location = useLocation();
   const dispatch = useAppDispatch();
 
   const fetchCard = async () => {
@@ -75,7 +76,7 @@ const CardLayout = () => {
   return (
     <div className="w-[100vw]">
       <h2 className="text-left ml-5 md:ml-20 font-bold text-gray-500 text-[50px]">📘</h2>
-      <p className="text-left ml-5 md:ml-20 italic text-gray-400 text-[17px] mt-[25px]">This is your note named {location.state.cardData.name}<br />You can see note status, deadline, and info. Maybe... You haven't finished your task so... Deadline's close!<br />Stay focused with us!</p>
+      <p className="text-left ml-5 md:ml-20 italic text-gray-400 text-[17px] mt-[25px]">This is your note named {data?.name}<br />You can see note status, deadline, and info. Maybe... You haven't finished your task so... Deadline's close!<br />Stay focused with us!</p>
       {
         isLoading ?
         <div className="flex flex-col items-center mt-10">
@@ -87,20 +88,18 @@ const CardLayout = () => {
               <h2 className="text-left ml-0 sm:ml-20 sm:mt-0 font-bold text-gray-500 text-[45px]">
                 <FontAwesomeIcon icon={faNoteSticky} className='text-black mr-[15px]'/>
                 <p className="mt-[25px] sm:mt-[-30px] ml-0 sm:ml-[45px] whitespace-nowrap">
-                    {location.state.cardData.name}
+                    {data?.name}
                 </p>
               </h2>
               <div className="text-right italic text-gray-600 mr-0 sm:mr-[20px]">
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <MobileDatePicker
-                    label={<p><FontAwesomeIcon icon={faCalendarDays} className='text-black mr-[3px]'/>Set deadline</p>}
-                    inputFormat="YYYY-MM-DD"
-                    value={card.deadline}
-                    // need to be event change mui to chakra
-                    onChange={(value) => {handleChange(value)}}
-                    renderInput={(params) => <TextField {...params} />}
-                    />
-                </LocalizationProvider>
+                {/* <LocalizationProvider dateAdapter={AdapterDayjs}> */}
+                <Input
+                  placeholder='Select deadline for task'
+                  size='sm'
+                  type='date'
+                  className='border-black border-[2px] p-[7px] rounded-[5px]'
+                />
+                {/* </LocalizationProvider> */}
                     {/* NORMAL: turn down this code to chakra rewrite */}
               </div>
             </div>
