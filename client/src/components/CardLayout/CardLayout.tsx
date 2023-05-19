@@ -92,15 +92,15 @@ const CardLayout = () => {
                 </p>
               </h2>
               <div className="text-right italic text-gray-600 mr-0 sm:mr-[20px]">
-                {/* <LocalizationProvider dateAdapter={AdapterDayjs}> */}
-                <Input
-                  placeholder='Select deadline for task'
-                  size='sm'
-                  type='date'
-                  className='border-black border-[2px] p-[7px] rounded-[5px]'
-                />
-                {/* </LocalizationProvider> */}
-                    {/* NORMAL: turn down this code to chakra rewrite */}
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <MobileDatePicker
+                    label="Pick deadline date"
+                    inputFormat="YYYY-MM-DD"
+                    value={data.deadline}
+                    // onChange={(value) => {handleChange(value)}}
+                    // renderInput={(params) => <TextField {...params} />}
+                  />
+                </LocalizationProvider>
               </div>
             </div>
             <div className="flex sm:flex-row flex-col gap-10">
