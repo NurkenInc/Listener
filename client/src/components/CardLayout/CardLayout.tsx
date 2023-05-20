@@ -97,8 +97,8 @@ const CardLayout = () => {
                     label="Pick deadline date"
                     inputFormat="YYYY-MM-DD"
                     value={data.deadline}
-                    // onChange={(value) => {handleChange(value)}}
-                    // renderInput={(params) => <TextField {...params} />}
+                    onChange={(value) => {handleChange(value)}}
+                    renderInput={(params) => <TextField {...params} />}
                   />
                 </LocalizationProvider>
               </div>
