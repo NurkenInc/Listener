@@ -3,7 +3,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { Input } from '@chakra-ui/react';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { useAuth } from '@clerk/clerk-react';
-// import { Typography } from "antd";
+import { Typography } from "antd";
 import { LocalizationProvider, MobileDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { TextField } from "@mui/material";
@@ -97,7 +97,7 @@ const CardLayout = () => {
                     label="Pick deadline date"
                     inputFormat="YYYY-MM-DD"
                     value={data.deadline}
-                    onChange={(value) => {handleChange(value)}}
+                    onChange={(value) => {}}
                     renderInput={(params) => <TextField {...params} />}
                   />
                 </LocalizationProvider>
