@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { animate } from "framer-motion";
+import { animate, stagger, useAnimate } from "framer-motion";
 import { 
   AiFillCheckSquare, 
   AiFillCloseSquare, 
@@ -11,7 +11,7 @@ const StatusDropdown = () => {
 
   return (
     <div>
-
+   
     </div>
   );
 }
