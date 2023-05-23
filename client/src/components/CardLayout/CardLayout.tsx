@@ -12,6 +12,7 @@ import { faCheck, faXmark, faClock, faNoteSticky, faCalendarDays, faInfo } from 
 
 import { updateCard, getCard } from '@/actions/cards';
 // import { getDeck, getDecks } from '@/actions/decks';
+import { StatusDropdown } from '@/components';
 import LoaderSquare from "@/components/Loaders/LoaderSquare";
 
 const initialState = {
@@ -116,7 +117,8 @@ const CardLayout = () => {
               <div className="mt-[-15px] sm:mt-[25px] md:w-[25%] text-left p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <h2 className="font-bold text-gray-500 text-[25px] mb-4 text-center">Status</h2>
                 <div>
-                  <button onClick={() => setDropdownActive((dropdownActive) => !dropdownActive)} id="dropdownUsersButton" data-dropdown-toggle="dropdownUsers" data-dropdown-placement="bottom" className="text-black bg-white font-medium rounded-lg px-4 py-2.5 hover:border-black text-center inline-flex items-center" type="button">{<div>{status === 'Done' ? <FontAwesomeIcon icon={faCheck} className='text-green-500 h-[20px] w-[20px]'/> : status === 'In Progress' ? <FontAwesomeIcon icon={faClock} className='text-yellow-400 h-[20px] w-[20px]'/> : status === 'Not done' ? <FontAwesomeIcon icon={faXmark} className='text-red-600 h-[20px] w-[20px]' /> : <></>}<p className='inline-block ml-[10px]'>{status === 'Untitled' ? 'Set Status' : status}</p></div>}</button>
+                  {/* <button onClick={() => setDropdownActive((dropdownActive) => !dropdownActive)} id="dropdownUsersButton" data-dropdown-toggle="dropdownUsers" data-dropdown-placement="bottom" className="text-black bg-white font-medium rounded-lg px-4 py-2.5 hover:border-black text-center inline-flex items-center" type="button">{<div>{status === 'Done' ? <FontAwesomeIcon icon={faCheck} className='text-green-500 h-[20px] w-[20px]'/> : status === 'In Progress' ? <FontAwesomeIcon icon={faClock} className='text-yellow-400 h-[20px] w-[20px]'/> : status === 'Not done' ? <FontAwesomeIcon icon={faXmark} className='text-red-600 h-[20px] w-[20px]' /> : <></>}<p className='inline-block ml-[10px]'>{status === 'Untitled' ? 'Set Status' : status}</p></div>}</button> */}
+                  <StatusDropdown />
                   {/* {dropdownActive === true ? <div id="dropdownUsers" className="z-10 bg-white rounded shadow w-auto dark:bg-gray-700">
                     <ul className="h-auto py-1 overflow-y-auto text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUsersButton">
                       <li onClick={() => {handleSetStatus('Done');  setNeedToUpdate(true)}} className="flex cursor-pointer items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
