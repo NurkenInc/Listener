@@ -66,11 +66,11 @@ const StatusDropdown = () => {
           pointerEvents: isOpen ? 'auto' : 'none',
           clipPath: 'inset(10% 50% 90% 50% round 10px)'
         }}
-        className='flex-col gap-[10px] bg-[white]'
+        className='flex-col bg-[white]'
       >
-        <li className='block origin-[-20%_50%] text-[#9900ff]'>Done</li>
-        <li className='block origin-[-20%_50%] text-[#9900ff]'>In Progress</li>
-        <li className='block origin-[-20%_50%] text-[#9900ff]'>Not done</li>
+        <li className='block my-[5px] border-green-400 border-[2px] rounded-lg p-[5px] origin-[-20%_50%] text-green-400'>Done</li>
+        <li className='block my-[5px] border-yellow-400 border-[2px] rounded-lg p-[5px] origin-[-20%_50%] text-yellow-400'>In Progress</li>
+        <li className='block my-[5px] border-red-400 border-[2px] rounded-lg p-[5px] origin-[-20%_50%] text-red-400'>Not done</li>
       </ul>
     </div>
   )
