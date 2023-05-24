@@ -102,47 +102,47 @@ const NotesItem = ({ text, isSubnotesOpen, handleToggleSubnotes, editMode } : No
   )
 }
 
+const Subnotes = ({ note } : { note : any }) => {
+  return (
+    <>
+      {
+        note?.subnotes?.map((item: any) => (
+          <div key={item.name}>
+            <MemorizedNoteItem text={item.name} />
+          </div>
+        ))
+      }
+    </>
+  )
+}
+
+const Notes = ({ notes }: { notes: Array<any> }) => {
+  const { isOpen, onToggle } = useDisclosure();
+  
+  // const handleToggleSubnotes = () => {
+  //   onToggle();
+  // }
+  
+  return (
+    <div>
+      {
+        notes.map((note : any) => (
+          <div key={note.name}>
+            <MemorizedNoteItem text={note.name} isSubnotesOpen={isOpen} handleToggleSubnotes={onToggle} />
+            <Collapse in={isOpen} animateOpacity >
+              <Subnotes note={note} />
+            </Collapse>
+          </div>
+        ))
+      }
+    </div>
+  )
+}
+
 const MemorizedNoteItem = React.memo(NotesItem);
 
 const NotesList = ({ notes } : { notes: Array<any> }) => {
   const { isOpen, onToggle, onClose } = useDisclosure();
-
-  const Subnotes = ({ note } : { note : any }) => {
-    return (
-      <>
-        {
-          note?.subnotes?.map((item: any) => (
-            <div key={item.name}>
-              <MemorizedNoteItem text={item.name} />
-            </div>
-          ))
-        }
-      </>
-    )
-  }
-
-  const Notes = ({ notes }: { notes: Array<any> }) => {
-    const { isOpen, onToggle } = useDisclosure();
-    
-    const handleToggleSubnotes = () => {
-      onToggle();
-    }
-    
-    return (
-      <div>
-        {
-          notes.map((note : any) => (
-            <div key={note.name}>
-              <MemorizedNoteItem text={note.name} isSubnotesOpen={isOpen} handleToggleSubnotes={handleToggleSubnotes} />
-              <Collapse in={isOpen} animateOpacity >
-                <Subnotes note={note} />
-              </Collapse>
-            </div>
-          ))
-        }
-      </div>
-    )
-  }
   
   return (
     <>
